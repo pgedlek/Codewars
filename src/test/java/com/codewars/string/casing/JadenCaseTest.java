@@ -1,9 +1,9 @@
 package com.codewars.string.casing;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class JadenCaseTest {
 
@@ -11,17 +11,17 @@ public class JadenCaseTest {
 
     @Test
     public void test() {
-        assertEquals("toJadenCase doesn't return a valide JadenCase String! try again please :)", "Most Trees Are Blue", jadenCase.toJadenCase("most trees are blue"));
+        assertEquals("Most Trees Are Blue", jadenCase.toJadenCase("most trees are blue"), "toJadenCase doesn't return a valide JadenCase String! try again please :)");
     }
 
     @Test
     public void testNullArg() {
-        assertNull("Must return null when the arg is null", jadenCase.toJadenCase(null));
+        assertNull(jadenCase.toJadenCase(null), "Must return null when the arg is null");
     }
 
     @Test
     public void testEmptyArg() {
-        assertNull("Must return null when the arg is empty string", jadenCase.toJadenCase(""));
+        assertNull(jadenCase.toJadenCase(""), "Must return null when the arg is empty string");
     }
 
 

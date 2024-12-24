@@ -1,16 +1,16 @@
 package com.codewars.find.odd;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindOddTest {
     private static void doTest(int[] input, int expected) {
         String message = String.format("for array = %s\n", Arrays.toString(input));
         int actual = FindOdd.findIt(input);
-        assertEquals(message, expected, actual);
+        assertEquals(expected, actual, message);
     }
 
     @Test
