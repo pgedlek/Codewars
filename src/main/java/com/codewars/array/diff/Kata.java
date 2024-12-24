@@ -1,7 +1,7 @@
 package com.codewars.array.diff;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Kata {
     public static int[] arrayDiff(int[] a, int[] b) {
@@ -12,28 +12,11 @@ public class Kata {
             return a;
         }
 
-        return findArrayDiff(a, b).stream()
-                .mapToInt(Integer::intValue)
-                .toArray();
+        return findArrayDiff(a, b);
     }
 
-    private static List<Integer> findArrayDiff(int[] a, int[] b) {
-        List<Integer> arrayDiffList = new ArrayList<>();
-
-        for (int numberFromA : a) {
-            boolean isPresent = false;
-            for (int numberFromB : b) {
-                if (numberFromA == numberFromB) {
-                    isPresent = true;
-                    break;
-                }
-            }
-
-            if (!isPresent) {
-                arrayDiffList.add(numberFromA);
-            }
-        }
-
-        return arrayDiffList;
+    private static int[] findArrayDiff(int[] a, int[] b) {
+        List<Integer> bToList = IntStream.of(b).boxed().toList();
+        return IntStream.of(a).filter(numberFromA -> !bToList.contains(numberFromA)).toArray();
     }
 }
